@@ -21,7 +21,7 @@ const Cart = () => {
         </div>
         <br />
         <hr />
-        {food_list.map((item, index) => {
+        {food_list.map((item) => {
           if (cartItems[item._id] > 0) {
             return (
               <div>
@@ -52,12 +52,14 @@ const Cart = () => {
             <hr />
             <div className="cart-total-details">
               <p>Delivery Fee</p>
-              <p>${2}</p>
+              <p>${getCartTotalAmount() === 0 ? 0 : 2}</p>
             </div>
             <hr />
             <div className="cart-total-details">
               <b>Total</b>
-              <b>${getCartTotalAmount() + 2}</b>
+              <b>
+                ${getCartTotalAmount() === 0 ? 0 : getCartTotalAmount() + 2}
+              </b>
             </div>
           </div>
           <button onClick={() => navigate("/order")}>
