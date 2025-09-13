@@ -6,7 +6,7 @@ import fs from "fs";
 const addFood = async (req, res) => {
   const image_filename = `${req.file.filename}`;
 
-  const food = new FoodModel({
+  const newFood = new FoodModel({
     name: req.body.name,
     description: req.body.description,
     price: req.body.price,
@@ -15,8 +15,8 @@ const addFood = async (req, res) => {
   });
 
   try {
-    await food.save();
-    res.json({ success: true, message: "Food Added" });
+    await newFood.save();
+    res.json({ success: true, message: "new Food Added" });
   } catch (err) {
     console.log(err);
     res.json({ success: false, message: "Error" });
