@@ -4,7 +4,26 @@ import bcrypt from "bcrypt";
 import validator from "validator";
 
 // Login user
-const loginUser = async (req, res) => {};
+const loginUser = async (req, res) => {
+  const { email, password } = req.body;
+  try {
+    const user = await UserModel.findOne({ email });
+    if (!user) {
+      return res.json({ success: false, message: "User doesn't exist" });
+    }
+
+    const isPwMatched = await bcrypt.compare(password, user.password);
+    if (!isPwMatched) {
+      return res.json({ success: false, message: "Invalid Credentials" });
+    }
+
+    const token = jwt.sign({ id: user._id }, process.env.JWT_SECRET);
+    res.json({ success: true, token });
+  } catch (err) {
+    console.log(err);
+    res.json({ success: false, message: "Error" });
+  }
+};
 
 // Register user
 const registerUser = async (req, res) => {
