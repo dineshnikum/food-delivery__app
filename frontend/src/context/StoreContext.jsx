@@ -5,6 +5,8 @@ export const StoreContext = createContext(null);
 
 const StoreContextProvider = ({ children }) => {
   const [cartItems, setCartItems] = useState({});
+  const [token, setToken] = useState("");
+  const url = "http://localhost:4000";
 
   const addToCart = (itemId) => {
     if (!cartItems[itemId]) {
@@ -35,6 +37,9 @@ const StoreContextProvider = ({ children }) => {
     addToCart,
     removeFromCart,
     getCartTotalAmount,
+    url,
+    token,
+    setToken,
   };
 
   return (
