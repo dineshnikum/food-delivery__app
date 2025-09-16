@@ -26,7 +26,7 @@ app.use("/api/cart", cartRouter);
 app.use("/api/order", orderRouter);
 
 app.get("/", (req, res) => {
-  res.json({ message: "Its working fine!" });
+  res.json({ message: "Fine!" });
 });
 
 app.listen(PORT, () => console.log(`server is running on port ${PORT}`));
