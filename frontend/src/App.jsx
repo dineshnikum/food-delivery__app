@@ -1,8 +1,8 @@
 import { Route, Routes } from "react-router-dom";
 import { useState } from "react";
-import Navbar from "./components/navbar/navbar";
+import Navbar from "./components/navbar/Navbar";
 import Home from "./pages/home/Home";
-import Cart from "./pages/cart/cart";
+import Cart from "./pages/cart/Cart";
 import PlaceOrder from "./pages/placeOrder/PlaceOrder";
 import Footer from "./components/footer/Footer";
 import LoginPopup from "./components/login-popup/LoginPopup";
