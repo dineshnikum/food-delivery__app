@@ -7,7 +7,7 @@ import Orders from "./pages/Orders/Orders";
 import { ToastContainer } from "react-toastify";
 
 const App = () => {
-  const url = import.meta.env.VITE_BACKEND_URL;
+  const url = "https://food-delivery-app-cepk.onrender.com"
 
   return (
     <div>
