@@ -7,7 +7,7 @@ const StoreContextProvider = ({ children }) => {
   const [cartItems, setCartItems] = useState({});
   const [token, setToken] = useState("");
   const [food_list, setFoodList] = useState([]);
-  const url = import.meta.env.VITE_BACKEND_URL;
+  const url = "https://food-delivery-app-cepk.onrender.com"
 
   const fetchFoodList = async () => {
     const response = await axios.get(`${url}/api/food/list`);
